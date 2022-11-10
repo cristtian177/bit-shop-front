@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+.bg-primary-gradiente{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, #020024aa 0%, #00d4ff29 100%);
+}
+
+.bg-dark-gray{
+    background-color: rgba(36, 36, 36, 0.767);
+}

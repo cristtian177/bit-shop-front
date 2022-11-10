@@ -1,0 +1,32 @@
+<div class="bg-dark">
+  <section>
+    <!-- baner -->
+  
+    <div
+      class="d-flex align-items-center justify-content-center"
+      style="height: 38vh"
+    >
+      <p class="text-white fs-1">bienvenido al mejor entretenimiento</p>
+    </div>
+  
+    <!-- seccion de series -->
+    <section class="bg-dark">
+
+      <h1 class="text-white">Peliculas</h1>
+
+      <div class="text-white container-fluid py-4 d-flex justify-content-center flex-wrap">
+
+        <app-card 
+          *ngFor="let movie of this.moviesDB"
+          title="{{movie.title}}" 
+          description="{{movie.description}}" 
+          btnText="{{movie.btnText}}" 
+          image="{{movie.image}}"
+          btnColor="{{movie.btnColor}}">
+        </app-card>
+
+      </div>
+    </section>
+    <!-- seccion de recomendados -->
+  </section>
+</div>
