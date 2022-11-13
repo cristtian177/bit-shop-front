@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="p-5 d-flex justify-content-center">
+    <div class="border p-3 rounded" style="width: 25rem">
+      <h3 class="text-center pb-3">Login</h3>
+  
+      <form #loginForm="ngForm">
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="Example@bitmovie.com"
+            name="email"
+            [ngModel]="this.userService.currentUser.email"
+            />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder=""
+            name="password"
+            [ngModel]="this.userService.currentUser.password"
+          />
+        </div>
+
+      </form>
+
+        <div class="d-flex justify-content-center">
+
+            <button class="btn btn-primary d-flex align-self-center" (click)="this.login(loginForm)">
+
+                <i class="material-icons pe-2">login</i>
+                Entrar
+
+            </button>
+        </div>
+
+    </div>
+  </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { NgForm } from '@angular/forms'
 import { Product } from 'src/app/models/product.model'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-admin',
@@ -51,7 +52,14 @@ export class AdminComponent implements OnInit {
   createProduct(form: NgForm){
 
     console.log(form.value)//{datos del formulario}
+
+    if(form.value._id){
+      this.updateProduct(form.value)
+      return 
+    }
     
+    delete form.value._id
+
     let {name, description } = form.value
 
     if(!name || !description ) return alert('diligencie todos los campos')
@@ -59,8 +67,52 @@ export class AdminComponent implements OnInit {
     this.productService.createProduct(form.value).subscribe( (res:any ) => {
       this.getProduts()
       alert(res.msg)
+      this.productService.currentProduct = new Product()
     })
 
   }
 
+  deleteProduct(id: string, name: string) {
+
+    Swal.fire({
+      title: `Esta seguro que desea eliminar el producto "${name}"`,
+      text: "Recuerda que esta acción es irreversible",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+
+        this.productService.deteleProduct(id).subscribe((res: any) => {
+          this.getProduts();
+        });
+
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Producto Eliminado',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }
+    })
+
+    return;
+  }
+
+
+  updateProduct(data: Product){
+
+
+  }
+
+  fillForm(product: Product){
+    this.productService.currentProduct = product
+  }
+
+ 
 }

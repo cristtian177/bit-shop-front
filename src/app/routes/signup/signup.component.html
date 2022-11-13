@@ -11,7 +11,7 @@
             id="firstName"
             placeholder="firstName"
             name="firstName"
-            [ngModel]="this.userService.currentProduct.firstName"
+            [ngModel]="this.userService.currentUser.firstName"
           />
         </div>
         <div class="mb-3">
@@ -22,7 +22,7 @@
             id="lastName"
             placeholder="Nombre de producto"
             name="lastName"
-            [ngModel]="this.userService.currentProduct.lastName"
+            [ngModel]="this.userService.currentUser.lastName"
           />
         </div>
         <div class="mb-3">
@@ -33,18 +33,18 @@
             id="email"
             placeholder="Descripcion del producto"
             name="email"
-            [ngModel]="this.userService.currentProduct.email"
+            [ngModel]="this.userService.currentUser.email"
           />
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Stock de producto</label>
+          <label for="password" class="form-label">Password</label>
           <input
-            type="text"
+            type="password"
             class="form-control"
             id="password"
             placeholder="Productos disponibles"
             name="password"
-            [ngModel]="this.userService.currentProduct.password"
+            [ngModel]="this.userService.currentUser.password"
           />
         </div>
 

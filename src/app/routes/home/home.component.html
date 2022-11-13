@@ -6,23 +6,22 @@
       class="d-flex align-items-center justify-content-center"
       style="height: 38vh"
     >
-      <p class="text-white fs-1">bienvenido al mejor entretenimiento</p>
+      <p class="text-bg-primary p-5 border rounded-2 text-center fs-1">Bienvenido al mejor entretenimiento</p>
     </div>
   
     <!-- seccion de series -->
     <section class="bg-dark">
 
-      <h1 class="text-white">Peliculas</h1>
+      <h1 class="text-white rounded-start ps-5 w-100 bg-danger ms-5">Peliculas</h1>
 
       <div class="text-white container-fluid py-4 d-flex justify-content-center flex-wrap">
 
         <app-card 
-          *ngFor="let movie of this.moviesDB"
-          title="{{movie.title}}" 
-          description="{{movie.description}}" 
-          btnText="{{movie.btnText}}" 
+          *ngFor="let movie of this.productService.products"
+          title="{{movie.name}}" 
+          description="{{movie.description}}"  
           image="{{movie.image}}"
-          btnColor="{{movie.btnColor}}">
+          >
         </app-card>
 
       </div>

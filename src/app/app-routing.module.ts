@@ -4,13 +4,14 @@ import { AdminComponent } from './routes/admin/admin.component';
 import { HomeComponent } from './routes/home/home.component';
 import { Page404Component } from './routes/page404/page404.component';
 import { SignupComponent } from './routes/signup/signup.component';
-
+import { LoginComponent } from './routes/login/login.component';
 const routes: Routes = [
   //{path: laruta, component: elcomponente que se va a renderizar cuando ponga esa ruta}
 
   {path: "", pathMatch: "full", redirectTo: "/home"},
 
   {path: "home", component: HomeComponent},
+  {path: "login", component: LoginComponent},
   {path: "admin", component: AdminComponent},
   {path: "signup", component: SignupComponent},
 

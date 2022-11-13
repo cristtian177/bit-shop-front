@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms'
-import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +18,7 @@ export class SignupComponent implements OnInit {
 
     console.log(form.value)//{datos del formulario}
 
-    let {name, description } = form.value
+    //let {name, description } = form.value
 
     this.userService.createUser(form.value).subscribe( (res:any ) => {
       alert(res.msg)

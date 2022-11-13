@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Product } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,47 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  moviesDB = [
-    {
-      title: 'The punisher',
-      description:
-        'El ex-militar Frank Castle es traicionado por tal y tal y ahora ',
-      btnText: 'Ver',
-      image: 'https://blog.tribugame.es/wp-content/uploads/2019/01/The-Punisher-temporada-2-1-1024x556.jpg',
-      btnColor: 'bg-primary-gradiente',
-      type: 'serie', //movie  serie  documental
-    },
-    {
-      title: 'The punisher',
-      description:
-        'El ex-militar Frank Castle es traicionado por tal y tal y ahora ',
-      btnText: 'Ver',
-      image: 'https://blog.tribugame.es/wp-content/uploads/2019/01/The-Punisher-temporada-2-1-1024x556.jpg',
-      btnColor: 'bg-primary-gradiente',
-      type: 'serie', //movie  serie  documental
-    },
-    {
-      title: 'The punisher',
-      description:
-        'El ex-militar Frank Castle es traicionado por tal y tal y ahora ',
-      btnText: 'Ver',
-      image: 'https://blog.tribugame.es/wp-content/uploads/2019/01/The-Punisher-temporada-2-1-1024x556.jpg',
-      btnColor: 'bg-primary-gradiente',
-      type: 'serie', //movie  serie  documental
-    },
-    {
-      title: 'The punisher',
-      description:
-        'El ex-militar Frank Castle es traicionado por tal y tal y ahora ',
-      btnText: 'Ver',
-      image: 'https://blog.tribugame.es/wp-content/uploads/2019/01/The-Punisher-temporada-2-1-1024x556.jpg',
-      btnColor: 'bg-primary-gradiente',
-      type: 'serie', //movie  serie  documental
-    },
-  ]
-  constructor() { }
+
+
+  constructor(public productService: ProductService ) { }
 
   ngOnInit(): void {
+
+    this.productService.getProducts().subscribe( (res: any) =>{
+      this.productService.products = res.data
+      console.log(res.data)
+    })
+
   }
+
 
 }
